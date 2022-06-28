@@ -1,0 +1,23 @@
+{
+  "name": "rocket-universe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leokazuyukinagatani/rocket-universe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leokazuyukinagatani/rocket-universe/issues"
+  },
+  "homepage": "https://github.com/leokazuyukinagatani/rocket-universe#readme",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
+}
