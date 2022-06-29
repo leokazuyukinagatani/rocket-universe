@@ -5,9 +5,85 @@
 }
 :root {
   font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
+  background-size: 100% 100%;
+  color: #E1E1E6;
+}
+
+header {
+  width: 100%;
+  height: 12.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3.2rem;
+  padding: 7.2rem;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+ul li button{
+  color: #8D8D99;
+
+  font-size: 2.4rem;
+  line-height: 2.2rem;
+}
+
+ul li button:hover{
+  color: #FFF;
+  font-weight: 700;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 125%;
+}
+
+p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 160%;
+  margin-top: 1.6rem;
+  width: 64.8rem;
+  height: 20.3rem;
+
+}
+
+#app {
+  margin-top: 6.3rem;
+  margin-left: 10rem;
+  gap: 1.6rem
+}
+
+.bg-home {
   background: #FFFFFF url("./images/home.png") no-repeat right top fixed;
+  background-size: 100% 100%;
+}
+
+.bg-uni {
+  background: #FFFFFF url("./images/universe.png") no-repeat right top fixed;
+  background-size: 100% 100%;
+
+}
+
+.bg-exp {
+  background: #FFFFFF url("./images/exploration.png") no-repeat right top fixed;
   background-size: 100% 100%;
 }
