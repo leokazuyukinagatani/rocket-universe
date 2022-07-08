@@ -1,14 +1,14 @@
+
 import { Router } from './router.js';
-import Events from './events.js';
-import Controls  from './controls.js';
-
-
 
 const router = new Router();
 
+router.add('/', '/pages/home.html');
+router.add('/universe', '/pages/universe.html');
+router.add('/exploration', '/pages/exploration.html');
+router.add(404, '/pages/404.html');
 
-const controls = Controls();
+router.handle();
 
-controls.explorationBg();
-
-Events(controls, router);
+window.route = () => router.route();
+window.onpopstate = () => router.handle();

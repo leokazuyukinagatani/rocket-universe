@@ -1,89 +1,237 @@
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
+
 :root {
   font-size: 62.5%;
-  font-family: 'Roboto', sans-serif;
+  --nav-height: 6.8rem;
+
+  --accent-clr: hsl(194, 97%, 31%);
+  --text-clr: hsl(240, 9%, 89%);
 }
 
 body {
-  background-size: 100% 100%;
-  color: #E1E1E6;
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-clr);
+  background-color: hsl(210, 100%, 7%);
+  background-image: url('images/home.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+
+  background-attachment: fixed;
 }
 
-header {
+body.universe {
+  background-image: url('images/universe.png');
+
+  background-color: hsl(210, 100%, 7%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+body.explore {
+  background-image: url('images/exploration.png');
+
+  background-color: hsl(210, 100%, 7%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+body.home li:nth-child(1) {
+  font-weight: 700;
+}
+
+body.universe li:nth-child(2) {
+  font-weight: 700;
+}
+
+body.explore li:nth-child(3) {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-clr);
+}
+
+img {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+nav {
+  padding: 0 7.2rem;
+  position: relative;
+
+  padding: 5rem 0 0;
+
   width: 100%;
-  height: 12.2rem;
+}
+
+nav ul {
+  font-size: 1.2rem;
+  line-height: 150%;
+
+  list-style: none;
+
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: flex-start;
   gap: 3.2rem;
-  padding: 7.2rem;
+
+  margin-left: 7rem;
+
+  width: 100%;
+  padding: 0 5.2rem;
+  text-align: center;
 }
 
-ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.2rem;
+nav ul li {
+  position: relative;
+  font-size: clamp(1.4rem, 1.6rem + 0.2vw, 1.8rem);
+  font-weight: 400;
 }
 
-ul li button{
-  color: #8D8D99;
-
-  font-size: 2.4rem;
-  line-height: 2.2rem;
+nav ul li::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  display: block;
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  background-color: var(--accent-clr);
+  transition: width 250ms;
 }
 
-ul li button:hover{
-  color: #FFF;
-  font-weight: 700;
+nav ul li:hover::after {
+  width: 100%;
 }
 
-button {
-  background: transparent;
-  border: none;
+.active {
+  font-weight: bold;
 }
 
-h1 {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 4.8rem;
+#root {
+  min-height: calc(100vh - var(--nav-height));
+  width: 100vw;
+
+  display: grid;
+}
+
+main {
+  width: min(64.8rem, 100vw);
+}
+
+main.land {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+main.content {
+  align-self: center;
+  justify-self: flex-start;
+  padding: 0 4rem;
+}
+
+main.land h1 {
+  font-size: clamp(3.8rem, 4rem + 0.2vw, 6rem);
+}
+
+main.content h1 {
+  font-size: clamp(4rem, 4.2rem + 0.2vw, 4.8rem);
   line-height: 125%;
 }
 
-p {
-  font-style: normal;
+main.content p {
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: clamp(1.4rem, 1.4rem + 0.2vw, 1.8rem);
   line-height: 160%;
-  margin-top: 1.6rem;
-  width: 64.8rem;
-  height: 20.3rem;
-
 }
 
-#app {
-  margin-top: 6.3rem;
-  margin-left: 10rem;
-  gap: 1.6rem
+main.land .btn {
+  color: var(--text-clr);
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 1.2rem 3.2rem;
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+
+  margin-top: 2.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 200ms, color 250ms;
 }
 
-.bg-home {
-  background: #FFFFFF url("./images/home.png") no-repeat right top fixed;
-  background-size: 100% 100%;
+main.land .btn:hover {
+  background: #ffffff;
+  color: var(--accent-clr);
+}
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.bg-uni {
-  background: #FFFFFF url("./images/universe.png") no-repeat right top fixed;
-  background-size: 100% 100%;
-
+.bubbles {
+  position: relative;
+  display: flex;
+  width: 100%;
 }
 
-.bg-exp {
-  background: #FFFFFF url("./images/exploration.png") no-repeat right top fixed;
-  background-size: 100% 100%;
+.bubbles span {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  background: #4fc3dc;
+  margin: 0 4rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4FC3DC44,
+  0 0 50px #4FC3DC,
+  0 0 100px #4FC3DC;
+
+  animation:  animate 15s linear infinite;
+  animation-duration: calc(100s / var(--i));
+}
+
+@keyframes animate {
+ 0% {
+  transform: translateY(100vh) scale(0);
+ }
+ 100% {
+  transform: translateY(-10vh) scale(1);
+ }
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0;
+    background-size: 1600% 1600%;
+  }
+
+  75% {
+    opacity: 1;
+    filter: brightness(3);
+    background-size: 100% 100%;
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+    background-size: 120% 120%;
+  }
 }

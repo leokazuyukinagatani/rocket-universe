@@ -1,15 +1,16 @@
 export class Router {
-  routes = {}
+  routes = {};
 
-  add(routeName, page) {
-    this.routes[routeName] = page;
+  add(pageName, path, bgPath) {
+    this.routes[pageName] = path;
+    this.bg = bgPath;
   }
 
   route(event) {
     event = event || window.event;
     event.preventDefault();
 
-    window.history.pushState({}, "", event.target.href);
+    window.history.pushState({}, '', event.target.href);
 
     this.handle();
   }
@@ -17,10 +18,36 @@ export class Router {
   handle() {
     const { pathname } = window.location;
     const route = this.routes[pathname] || this.routes[404];
+    this.changeBg();
+
     fetch(route)
-    .then(data => data.text()
-    .then(html => {
-      document.querySelector('#app').innerHTML = html;
-    }))
+      .then((data) => data.text())
+      .then((html) => {
+        document.querySelector('#root').innerHTML = html;
+      });
+  }
+
+  changeBg() {
+    const { pathname } = window.location;
+
+    const { body } = document;
+
+    switch (pathname) {
+      case '/exploration':
+        body.className = 'explore';
+        break;
+
+      case '/universe':
+        body.className = 'universe';
+        break;
+
+      case '/':
+        body.className = 'home';
+        break;
+
+      default:
+        body.className = '';
+        break;
+    }
   }
 }

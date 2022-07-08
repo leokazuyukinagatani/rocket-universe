@@ -19,5 +19,6 @@
   "homepage": "https://github.com/leokazuyukinagatani/rocket-universe#readme",
   "dependencies": {
     "live-server": "^1.2.2"
-  }
+  },
+  "devDependencies": {}
 }
